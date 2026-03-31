@@ -2,9 +2,7 @@
 
 function App() {
   return (
-        <p>
-          React
-        </p>
+        <p></p>
   );
 }
 
