@@ -1,8 +1,20 @@
+import Login from "../../screens/Login/Login";
 
 
-function Navbar(){
+function Navbar(props){
+    let unMenu = ["Home", "Películas", "Series",  
+    ];
     return(
-        <p></p>
+        <nav>
+            <ul className="nav nav-tabs my-4">
+                {
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>   
+                }
+            </ul>
+            <Login/>
+        </nav>
     );
 };
 
