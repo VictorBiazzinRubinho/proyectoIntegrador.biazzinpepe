@@ -35,7 +35,7 @@ class FavMovies extends Component {
     render(){
         return(
             <React.Fragment>
-                <h2 className="alert alert-primary">Películas Favoritas</h2>
+                <h2 className="pelisfav">Películas Favoritas</h2>
                 <div>
                     <section className="row cards" id="movie">
                         {this.state.cargados == false ?

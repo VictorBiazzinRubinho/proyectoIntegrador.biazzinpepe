@@ -45,8 +45,8 @@ class Login extends Component {
     render() {
         return (
             <React.Fragment>
-                <h2 className="alert alert-primary">Iniciar sesión</h2>
-                <div className="row justify-content-center">
+                <h2 className="login">Iniciar sesión</h2>
+                <div className="divlogin">
                     <div className="col-md-6">
                         <form onSubmit={(e) => { e.preventDefault(); this.login() }}>
                             <div className="form-group">

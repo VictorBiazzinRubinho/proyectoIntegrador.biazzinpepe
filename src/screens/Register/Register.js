@@ -55,8 +55,8 @@ class Register extends Component {
     render() {
         return (
             <React.Fragment>
-                <h2 className="alert alert-primary">Registro</h2>
-                <div className="row justify-content-center">
+                <h2 className="registro">Registro</h2>
+                <div className="divregistro">
                     <div className="col-md-6">
                         <form onSubmit={(e) => { e.preventDefault(); this.registro() }}>
                             <div className="form-group">
