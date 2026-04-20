@@ -9,9 +9,8 @@ class SeccionPeliculas extends Component {
             datos: []
         };
     }
-    componentDidiMount(){
+    componentDidMount(){
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=9db3ef1e0eb1302b52edf03773eaebd3')
-
             .then(res => res.json())
             .then(data => this.setState({ datos: data.results }))
             .catch(error => console.log(error));
@@ -22,9 +21,7 @@ class SeccionPeliculas extends Component {
             <React.Fragment>
                {this.state.datos.length === 0 ?
                <h3>Cargando...</h3> :
-                
                <section className="cards" id="movies">
-
                     {this.state.datos.filter((pelicula, idx) => idx<4).map((pelicula) => (
                         <Card 
                             type="movie"

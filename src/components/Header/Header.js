@@ -36,7 +36,7 @@ class Header extends Component {
                     <div>
                         <nav>
                             <ul className="nav nav-tabs my-4">
-                                <li class="nav-item">
+                                <li className="nav-item">
                                     <Link to="/" className="nav-link">Home</Link>
                                 </li>
                                 <li className="nav-item">
