@@ -1,0 +1,261 @@
+* {
+    margin: 2px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logov {
+    height: 50px;
+    max-width: 50px;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #eee;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.nav {
+    margin: 0 !important;
+}
+
+.nav a{
+    color: #444;
+    text-decoration: none;
+}
+
+.nav a:hover{
+    font-weight: bold;
+}
+
+.userNav {
+    display: flex;
+    margin-left: 1242px;
+}
+
+.nav nav-tabs my-4{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.search-form, .filter-form {
+    padding: .5rem 0;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    column-gap: 5px;
+}
+
+.favoritos {
+    margin-left: 50px;
+}
+.filter-form {
+    grid-template-columns: 1fr;
+}
+
+.card-img-top{
+    width: 96%;
+}
+
+.search-form .btn-sm{
+    line-height: 1;
+    font-size: 0.9rem;
+}
+
+.search-form input,
+.filter-form input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding-top: 3px;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 1rem;
+    padding-bottom: 4px;
+}
+
+.noresult {
+    text-align: center;
+    color: gray;
+    font-size: 25px;
+    margin-top: 40px;
+}
+
+.footer{
+    background-color: #eee;
+}
+
+.verMasBotao {
+    width: 230px;
+    margin-left: 50%;
+    margin-top: 10px;
+}
+
+.filter-form input {
+    line-height: 1.5;
+}
+
+.cards {
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+
+.cardBody {
+    margin-top: 20px;
+}
+
+.card-text-show {
+    display: block;
+    height: 100px;
+    overflow: hidden;
+}
+
+.card-text-hide {
+    display: none;
+}
+
+.single-card-people {
+    width: 19%;
+}
+.single-card-movie {
+    width: 24%;
+}
+.single-card-playing {
+    width: 15%;
+}
+#now-playing .card-text{
+    height: 100px;
+    overflow: hidden;
+}
+.single-card-tv {
+    width: 19%;
+}
+.tv-show .card-text{
+    height: 100px;
+    overflow: hidden;
+}
+.single-card-on-air{
+    width: 15%;
+}
+#on-air-today .card-text{
+    height: 100px;
+    overflow: hidden;
+}
+
+.all-movies .single-card-movie {
+    width: 15%;
+}
+
+.single-card-movie {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.864);
+    margin-top: 30px;
+    border-radius: 10px;
+    width: 24%;
+}
+
+@media(max-width: 1440px) {
+
+    nav {
+        grid-template-columns: 1fr;
+    }
+
+    .card-img-top {
+        width: 400px;
+        margin: 0px 11% 0px 14%;;
+    }
+
+    .userNav {
+        display: flex;
+        margin-left: 750px;
+    }
+
+    .favoritos {
+        margin-left: 115px;
+    }
+
+    .card-img-top {
+        width: 252px;
+    }
+
+}
+
+@media(max-width: 1024px) {
+
+    nav {
+        grid-template-columns: 1fr;
+    }
+    .userNav {
+        display: flex;
+        margin-left: 350px;
+    }
+
+    .favoritos {
+        margin-left: 21%;
+        margin-top: 10px;
+    }       
+
+    .card-img-top {
+        width: 180px;
+    }
+
+}
+
+@media(max-width: 768px) {
+
+    nav {
+        grid-template-columns: 1fr;
+    }
+
+    .userNav {
+        display: flex;
+        margin-left: 105px;
+    }
+
+    .card-title {
+        height: 10%;
+    }
+
+    .card-img-top {
+        width: 152px;
+        margin: 0px 8% 0px 8%;
+    }
+
+    .favoritos {
+        margin-left: 6px;
+        margin-top: 10px;    
+    }
+}
+
+@media (max-width: 480px){
+    .card-img-top {
+        width: 85%;
+    }
+
+    .single-card-movie {
+        justify-content: center;
+        width: 80%;
+        height: fit-content;
+        margin-left: 10%;
+    }
+}
