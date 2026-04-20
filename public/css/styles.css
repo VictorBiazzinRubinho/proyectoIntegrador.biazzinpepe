@@ -127,7 +127,7 @@ nav {
 
 .card-text-show {
     display: block;
-    height: 100px;
+    height: auto;
     overflow: hidden;
 }
 
