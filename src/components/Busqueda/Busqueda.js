@@ -11,7 +11,7 @@ class Busqueda extends Component {
 
     evitarBusqueda(e){
         e.preventDefault();
-        this.props.history.push('/Results' + this.state.valor + "/pelicula")
+        this.props.history.push('/Results/' + this.state.valor)
     }
 
     controlarCambios(e){
