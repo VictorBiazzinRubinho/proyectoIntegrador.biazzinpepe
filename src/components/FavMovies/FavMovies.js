@@ -21,7 +21,7 @@ class FavMovies extends Component {
         } else {
             const favsRecuperados = []
             listFavJson.map((i) =>
-            fetch(`https://api.themovie.org/3/movie/${i}?api_key=9db3ef1e0eb1302b52edf03773eaebd3`)
+            fetch(`https://api.themoviedb.org/3/movie/${i}?api_key=9db3ef1e0eb1302b52edf03773eaebd3`)
               .then(res => res.json())
               .then(data => {
                 favsRecuperados.push(data)
