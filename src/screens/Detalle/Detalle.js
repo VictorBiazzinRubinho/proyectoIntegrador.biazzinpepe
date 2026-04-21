@@ -3,7 +3,6 @@ import Cookies from 'universal-cookie'
 
 const cookies = new Cookies()
 class Detalle extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -22,7 +21,7 @@ class Detalle extends Component {
         let storage = localStorage.getItem("movie")
         let storageJson = JSON.parse(storage)
         if (storageJson !== null) {
-            let esFavorito = storageJson.filter(id => id == this.props.match.params.id).length > 0
+            let esFavorito = storageJson.filter(id => id === this.props.match.params.id).length > 0
             if (esFavorito) {
                 this.setState({ estadoFavoritos: true, valor: "♥️" })
             }
@@ -85,7 +84,7 @@ class Detalle extends Component {
                                 <p className="mt-0" id="votes"><strong>Puntuación:</strong> {this.state.datos.vote_average}</p>
                                 <ul className="mt-0 mb-0 length"><strong>Géneros:</strong> {this.state.datos.genres.map((genero, idx) =>
                                     <li key={genero + idx}> {genero.name}</li>)}</ul>
-                                <button onClick={() => this.state.estadoFavoritos == false ? this.agregarfav(this.state.datos.id) : this.Eliminar(this.state.datos.id)} value={this.props.id} className={this.state.logi ? 'favoritos' : 'card-text-hide'}>
+                                <button onClick={() => this.state.estadoFavoritos === false ? this.agregarfav(this.state.datos.id) : this.Eliminar(this.state.datos.id)} value={this.props.id} className={this.state.logi ? 'favoritos' : 'card-text-hide'}>
                                     {this.state.valor}
                                 </button>
                             </section>
