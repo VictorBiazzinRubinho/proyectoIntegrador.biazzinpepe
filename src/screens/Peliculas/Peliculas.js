@@ -37,7 +37,7 @@ class Peliculas extends Component {
         return (
         <React.Fragment>
             <h2 className="todaspelis">Todas las películas</h2>
-            <BuscadorFiltro filtrar={(input) => this.filtrarPeliculas(input)} />
+            <BuscadorFiltro filter={(input) => this.filtrarPeliculas(input)} />
             {this.state.cargados == false ?
                 <h3>Cargando...</h3> :
                 this.state.datos.length === 0 ?

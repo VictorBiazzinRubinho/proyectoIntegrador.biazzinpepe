@@ -20,15 +20,20 @@ a:hover {
 }
 
 nav {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    align-items: center;
     background-color: #eee;
-    border-radius: 4px;
+    padding: 10px 50px; /* Dá um respiro nas laterais */
     margin-bottom: 20px;
+    border-radius: 4px;
 }
 
 .nav {
+    display: flex;
+    list-style: none;
     margin: 0 !important;
+    padding: 0;
+    gap: 20px;
 }
 
 .nav a{
@@ -42,7 +47,8 @@ nav {
 
 .userNav {
     display: flex;
-    margin-left: 1242px;
+    gap: 15px;
+    margin-left: auto;
 }
 
 .nav nav-tabs my-4{
@@ -56,6 +62,14 @@ nav {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px; 
 }
 
 .search-form, .filter-form {
@@ -100,10 +114,12 @@ nav {
     font-size: 25px;
 }
 
-.footer {
-    background-color: aqua;
-    display: flex;
-    justify-content: center;
+footer {
+    width: 100%;
+    background-color: aqua; 
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
 }
 
 .cargarmas {
@@ -131,24 +147,89 @@ nav {
     line-height: 1.5;
 }
 
-.registro {
-    display: flex;
-    justify-content: center;
-}
-
 .divregistro {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    min-height: 70vh; 
+}
+
+.registro {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+.divregistro form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px; 
+    gap: 15px;
+}
+
+.divregistro input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.divregistro button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.divregistro button:hover {
+    background-color: #0056b3;
+}
+
+/* Container do Login */
+.divlogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    min-height: 60vh;
 }
 
 .login {
-    display: flex;
-    justify-content: center;
+    text-align: center; 
+    width: 100%;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-weight: bold;
 }
 
-.divlogin {
+.divlogin form {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+    gap: 15px;
+}
+
+.divlogin input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.divlogin button {
+    background-color: #28a745; 
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .cards {
