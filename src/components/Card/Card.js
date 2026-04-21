@@ -17,7 +17,6 @@ class Card extends Component {
     componentDidMount(){
         let storage = localStorage.getItem('movie')
         let storageJson = JSON.parse(storage)
-
         if (storageJson !== null) {
             let esFavorito = storageJson.filter(id => id === this.props.id).length > 0
             if (esFavorito) {
@@ -29,7 +28,6 @@ class Card extends Component {
 
     verificar(){
         let logeado = cookies.get('userEmail')
-
         if (logeado != null) {
             this.setState({logi: true})
         } else {
@@ -42,7 +40,6 @@ class Card extends Component {
     agregarfav(id){
         let storage = localStorage.getItem('movie')
         let storageJson = JSON.parse(storage)
-
         if (storageJson == null) {
             let primerValor = [id]
             let primerString = JSON.stringify(primerValor)
@@ -88,7 +85,7 @@ class Card extends Component {
                     <button onClick={() => this.state.verMas ? this.MostrarMenos() : this.MostrarMas()}>{this.state.verMas == true ? "Mostrar descripción" : "Ocultar descripción"}</button>
                     <p className={this.state.verMas ? "card-text-hide" : "card-text-show"}>{this.props.descripcion}</p>
                     <Link to={`/Detalle/${this.props.id}`} className=" btn btn-primary">Ver más</Link>
-                    <button onClick={() => this.state.estadoFavoritos == false ? this.agregarfav(this.props.id) : this.Eliminar(this.props.id)} value={this.props.id} className={this.state.logi?'favoritos':'card-text-hide'}>
+                    <button onClick={() => this.state.estadoFavoritos == false ? this.agregarfav(this.props.id) : this.Eliminar(this.props.id)} value={this.props.id} className="favoritos">
                         {this.state.valor}
                     </button>
                 </div>
