@@ -23,7 +23,7 @@ nav {
     display: flex;
     align-items: center;
     background-color: #eee;
-    padding: 10px 50px; /* Dá um respiro nas laterais */
+    padding: 10px 50px; 
     margin-bottom: 20px;
     border-radius: 4px;
 }

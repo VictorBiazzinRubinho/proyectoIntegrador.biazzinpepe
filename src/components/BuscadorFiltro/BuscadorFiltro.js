@@ -21,7 +21,7 @@ class BuscadorFiltro extends Component {
     render(){
         return(
             <form onSubmit={(event) => this.evitarSubmit(event)} className="search-form">
-                <input type="text" onChange={(event) => this.guardarCambios(event)} value={this.state.valor}></input>
+                <input type="text" onChange={(event) => this.guardarCambios(event)} value={this.state.valor} placeholder="Buscar películas..."></input>
                 <button type="submit" className="btn-sm">Buscar</button>
             </form>
         )
