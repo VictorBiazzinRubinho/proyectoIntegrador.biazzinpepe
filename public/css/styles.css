@@ -51,13 +51,6 @@ nav {
     margin-left: auto;
 }
 
-.nav nav-tabs my-4{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-}
-
 .nav-item{
     display: flex;
     align-items: center;
@@ -83,6 +76,7 @@ form {
 .favoritos {
     margin-left: 50px;
 }
+
 .filter-form {
     grid-template-columns: 1fr;
 }
@@ -191,7 +185,6 @@ footer {
     background-color: #0056b3;
 }
 
-/* Container do Login */
 .divlogin {
     display: flex;
     flex-direction: column;
