@@ -1,97 +1,97 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Cookies from 'universal-cookie';
+import React, { useState, useEffect } from 'react'; 
+import { Link } from 'react-router-dom'; 
+import Cookies from 'universal-cookie'; 
 
-const cookies = new Cookies()
-class Card extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            estadoFavoritos: false,
-            valor: "🤍",
-            verMas: true,
-            logi: false,
-        }
-    }
+const cookies = new Cookies() 
 
-    componentDidMount(){
-        let storage = localStorage.getItem('movie')
-        let storageJson = JSON.parse(storage)
+function Card(props) {
+
+    const [verMas, setVerMas] = useState(false)
+
+    const [estadoFavoritos, setEstadoFavoritos] = useState(false)
+
+    const [valor, setValor] = useState("🤍")
+
+    const [logi, setLogi] = useState(false)
+
+    useEffect(
+        () => { 
+        let storage = localStorage.getItem('movie') 
+        let storageJson = JSON.parse(storage) 
         if (storageJson !== null) {
-            let esFavorito = storageJson.filter(id => id === this.props.id).length > 0
-            if (esFavorito) {
-                this.setState({estadoFavoritos: true, valor: "❤️"})
+            let esFavorito = storageJson.filter(id => id === props.id).length > 0 
+            if (esFavorito) { 
+                setEstadoFavoritos(true);
+                setValor("❤️");
             }
         }
-        this.verificar()
-    }
+        verificar() 
+        }, []
+    )
 
-    verificar(){
-        let logeado = cookies.get('userEmail')
+    function verificar(){ 
+        let logeado = cookies.get('userEmail') 
         if (logeado != null) {
-            this.setState({logi: true})
+            setLogi(true) 
         } else {
-            this.setState({logi: false})
+            setLogi(false)
         }
         console.log(logeado);
-        console.log(this.state);
+        console.log({verMas, estadoFavoritos, valor, logi});
     }
 
-    agregarfav(id){
+    function agregarfav(id){ 
         let storage = localStorage.getItem('movie')
         let storageJson = JSON.parse(storage)
         if (storageJson == null) {
             let primerValor = [id]
-            let primerString = JSON.stringify(primerValor)
+            let primerString = JSON.stringify(primerValor) 
             localStorage.setItem('movie', primerString)
         }
         else {
-            storageJson.push(id)
-            let storageString = JSON.stringify(storageJson)
+            storageJson.push(id) 
+            let storageString = JSON.stringify(storageJson) 
             localStorage.setItem('movie', storageString)
         }
-        this.setState({estadoFavoritos: true, valor: "❤️"})
+        setEstadoFavoritos(true)
+        setValor("❤️")
     }
 
-    Eliminar(id){
+    function Eliminar(id){ 
         let listFav = localStorage.getItem('movie')
         let listFavJson = JSON.parse(listFav)
-        let nuevaListFav = listFavJson.filter((i) => i !== id)
-        let newListFavJson = JSON.stringify(nuevaListFav)
+        let nuevaListFav = listFavJson.filter((i) => i !== id) 
+        let newListFavJson = JSON.stringify(nuevaListFav) 
         localStorage.setItem('movie', newListFavJson)
-        this.setState({valor: "🤍", estadoFavoritos: false})
+        setValor("🤍")
+        setEstadoFavoritos(false)
     }
 
-    MostrarMas(){
-        this.setState({
-            verMas: true
-        })
+    function MostrarMas(){ 
+        setVerMas(true)
     }
 
-    MostrarMenos(){
-        this.setState({
-            verMas: false
-        })
+    function MostrarMenos(){ 
+        setVerMas(false)
     }
 
-    render(){
         return(
             <article className="single-card-movie">
-                <h5 className="card-title">{this.props.titulo}</h5>
+                <h5 className="card-title">{props.titulo}</h5> 
                 <div className="cardBody">
-                    <img src={"https://image.tmdb.org/t/p/original/" + this.props.imagen}
+                    <img src={"https://image.tmdb.org/t/p/original/" + props.imagen}
                     className="card-img-top"
                     alt="..."/>
-                    <button onClick={() => this.state.verMas ? this.MostrarMenos() : this.MostrarMas()}>{this.state.verMas == true ? "Mostrar descripción" : "Ocultar descripción"}</button>
-                    <p className={this.state.verMas ? "card-text-hide" : "card-text-show"}>{this.props.descripcion}</p>
-                    <Link to={`/Detalle/${this.props.id}`} className=" btn btn-primary">Ver más</Link>
-                    <button onClick={() => this.state.estadoFavoritos == false ? this.agregarfav(this.props.id) : this.Eliminar(this.props.id)} value={this.props.id} className="favoritos">
-                        {this.state.valor}
+                        <button onClick={() => verMas ? MostrarMenos() : MostrarMas()}>{verMas == true ? "Mostrar descripción" : "Ocultar descripción"}</button> 
+                    <p className={verMas ? "card-text-hide" : "card-text-show"}>{props.descripcion}</p> 
+                    <Link to={`/Detalle/${props.id}`} className=" btn btn-primary">Ver más</Link>
+                    <button onClick={() => estadoFavoritos == false ? agregarfav(props.id) : Eliminar(props.id)} value={props.id} className="favoritos">
+                        {valor}
                     </button>
                 </div>
             </article>
         )
-    }
+    
 }
 
 export default Card;

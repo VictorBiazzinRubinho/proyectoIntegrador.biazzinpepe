@@ -1,35 +1,25 @@
-import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom/cjs/react-router-dom';
+import React, { useState } from 'react'; 
+import { withRouter, Link } from 'react-router-dom/cjs/react-router-dom'; 
 
-class Busqueda extends Component {
-    constructor (props){
-        super(props)
-        this.state = ({
-            valor: ''
-        })
+function Busqueda(props) {
+
+    const [valor, setValor] = useState('')
+
+    function evitarBusqueda(e){ 
+        e.preventDefault(); 
+        props.history.push('/Results/' + valor) 
     }
 
-    evitarBusqueda(e){
-        e.preventDefault();
-        this.props.history.push('/Results/' + this.state.valor)
+    function controlarCambios(e){ 
+        setValor(e.target.value)
     }
 
-    controlarCambios(e){
-        this.setState({
-            valor: e.target.value
-        },
-        () => console.log(this.state.valor),
-        )
-    }
-
-    render(){
-        return(
-            <form onSubmit={(event) => this.evitarBusqueda(event)} className="search-form">
-                <input type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} name="searchData" placeholder="Buscar películas..."></input>
-                <button type="submit" className="btn-sm">Buscar</button>
+    return(
+            <form onSubmit={(e) => evitarBusqueda(e)} className="search-form"> 
+                <input type="text" onChange={(e) => controlarCambios(e)} value={valor} name="searchData" placeholder="Buscar películas..."></input> 
+                <button type="submit" className="btn-sm">Buscar</button> 
             </form>
         )
-    }
 }
 
-export default withRouter(Busqueda);
+export default withRouter(Busqueda); 

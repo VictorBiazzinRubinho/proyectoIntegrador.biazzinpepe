@@ -1,32 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies()
-class Header extends Component {
-    constructor(props){
-        super(props)
-            this.state = {
-                valor : false
-            }
-        }
+function Header(props) {
+   
+        const [valor, setValor] = useState(false)
 
-        componentDidMount(){
-            this.verificar()
-        }
+        useEffect(
+            () => {
+            verificar()
+        }, []
+        )
 
-        verificar(){
+        function verificar(){
             let logeado = cookies.get('userEmail')
             
             if (logeado != null){
-                this.setState({valor : true})
+                setValor(true)
             } else {
-                this.setState({valor : false})
+                setValor(false)
             }
             console.log(logeado);
-            console.log(this.state);
+            console.log({valor});
         }
-        render(){
             return(
                 <header>
                     <div className="container">
@@ -55,8 +52,7 @@ class Header extends Component {
                         </nav>
                     </div>
                 </header>
-                )
-            }
+            )          
 }
 
 export default Header;

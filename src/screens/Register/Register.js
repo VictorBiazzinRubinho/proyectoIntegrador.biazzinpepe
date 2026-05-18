@@ -1,22 +1,19 @@
-import React, { Component } from 'react'
-import { withRouter, Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { withRouter, Link } from 'react-router-dom';
 
-class Register extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            email: '',
-            password: '',
-        }
-    }
+function Register(props) {
 
-    registro() {
-        console.log(this.state.email);
-        console.log(this.state.password);
+    const [email, setEmail] = setState('')
+
+    const [password, setPassword] = setState('')
+
+    function registro() {
+        console.log(email);
+        console.log(password);
 
         let usuarioACrear = {
-            email: this.state.email,
-            password: this.state.password,
+            email: email,
+            password: password,
             createdAt: Date.now(),
         }
 
@@ -28,7 +25,6 @@ class Register extends Component {
         let usersStorage = localStorage.getItem('users')
         if (usersStorage != null) {
             let usersParseado = JSON.parse(usersStorage)
-
 
             let usersFiltrados = usersParseado.filter(function (user) {
                 return user.email == usuarioACrear.email;
@@ -49,23 +45,22 @@ class Register extends Component {
             let usersEnJson = JSON.stringify(usersInicial)
             localStorage.setItem('users', usersEnJson);
         }
-        this.props.history.push('/Login')
+        props.history.push('/Login')
     }
 
-    render() {
         return (
             <React.Fragment>
                 <h2 className="registro">Registro</h2>
                 <div className="divregistro">
                     <div className="col-md-6">
-                        <form onSubmit={(e) => { e.preventDefault(); this.registro() }}>
+                        <form onSubmit={(e) => { e.preventDefault(); registro() }}>
                             <div className="form-group">
                                 <label for="email">Email</label>
-                                <input onChange={(e) => this.setState({ email: e.target.value })} type="email" className="form-control" id="email" placeholder="Ingresá tu email" />
+                                <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control" id="email" placeholder="Ingresá tu email" />
                             </div>
                             <div className="form-group">
                                 <label for="password">Contraseña</label>
-                                <input onChange={(e) => this.setState({ password: e.target.value })} type="password" className="form-control" id="password" placeholder="Ingresá tu contraseña" />
+                                <input onChange={(e) => setPassword(e.target.value)} type="password" className="form-control" id="password" placeholder="Ingresá tu contraseña" />
                             </div>
                             <button type="submit" className="btn btn-primary btn-block">Registrarse</button>
                         </form>
@@ -74,7 +69,6 @@ class Register extends Component {
                 </div>
             </React.Fragment>
         )
-    }
 }
 
 export default withRouter(Register);

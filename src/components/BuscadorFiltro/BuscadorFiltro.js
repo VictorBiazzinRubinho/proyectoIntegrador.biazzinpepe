@@ -1,31 +1,23 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react'; 
 
-class BuscadorFiltro extends Component {
-    constructor(props){
-        super(props)
-        this.state={
-            valor: ""
-        }
+function BuscadorFiltro(props) { 
+
+    const [valor, setValor] = useState("")
+
+    function evitarSubmit(event){ 
+        event.preventDefault(); 
     }
 
-    evitarSubmit(event){
-        event.preventDefault();
-    }
-
-    guardarCambios(event){
-        this.setState({
-            valor: event.target.value
-        }, () => this.props.filter(this.state.valor))
-    }
-
-    render(){
-        return(
-            <form onSubmit={(event) => this.evitarSubmit(event)} className="search-form">
-                <input type="text" onChange={(event) => this.guardarCambios(event)} value={this.state.valor} placeholder="Buscar películas..."></input>
-                <button type="submit" className="btn-sm">Buscar</button>
+    function guardarCambios(event){ 
+        setValor(event.target.value), 
+        () => props.filter(valor) 
+    } 
+    return(
+            <form onSubmit={(event) => evitarSubmit(event)} className="search-form"> 
+                <input type="text" onChange={(event) => guardarCambios(event)} value={valor} placeholder="Buscar películas..."></input> 
+                <button type="submit" className="btn-sm">Buscar</button> 
             </form>
         )
-    }
 }
 
-export default BuscadorFiltro;
+export default BuscadorFiltro; 
